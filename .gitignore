@@ -1,0 +1,36 @@
+# Godot executable files
+Godot_v*
+*.x86_64
+*.exe
+*.app
+
+# Godot generated files
+.import/
+export.cfg
+export_presets.cfg
+
+# Godot project files (optional)
+*.translation
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build artifacts
+builds/
+exports/
+
+# Large archives
+*.zip
