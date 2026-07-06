@@ -1,0 +1,22 @@
+{
+  "name": "timeshop-game",
+  "version": "1.0.0",
+  "description": "时光杂货铺 - 一个温馨治愈的模拟经营游戏",
+  "main": "final.html",
+  "scripts": {
+    "install-capacitor": "npm install @capacitor/core @capacitor/cli @capacitor/ios",
+    "init-ios": "npx cap init '时光杂货铺' com.timeshop.game",
+    "add-ios": "npx cap add ios",
+    "sync-ios": "npx cap sync ios",
+    "open-ios": "npx cap open ios",
+    "build-ios": "npx cap sync && npx cap open ios"
+  },
+  "keywords": [
+    "game",
+    "simulation",
+    "story",
+    "time-shop"
+  ],
+  "author": "Claude",
+  "license": "MIT"
+}

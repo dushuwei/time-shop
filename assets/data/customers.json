@@ -1,0 +1,95 @@
+{
+	"customers": [
+		{
+			"id": "nostalgic_teen",
+			"name": "李明",
+			"name_en": "Li Ming",
+			"era": "1980s",
+			"age": 17,
+			"story_title": "青春的告白",
+			"story_title_en": "Confession of Youth",
+			"backstory": "1985年的高中生，暗恋同班的女生已经两年了。毕业在即，他想用一盒特别的磁带录下自己的心声。那个时代没有手机，一盒磁带就是最真挚的告白。",
+			"dialogue": [
+				"你好...我想找一盒磁带。",
+				"不是普通的那种，我想要能录音的，音质要好的。",
+				"我...我要录一些话给一个很重要的人。",
+				"其实是我们班的班花，我喜欢她两年了，但一直没敢说。",
+				"马上就要毕业了，我想...至少让她知道。",
+				"谢谢！我一定会鼓起勇气的！"
+			],
+			"desired_items": ["cassette_tape"],
+			"reward_money": 25,
+			"reward_reputation": 10,
+			"unlock_condition": "",
+			"epilogue": "一个月后，李明又来了。他红着脸告诉你，她答应了。那盒磁带，她至今还珍藏着。"
+		},
+		{
+			"id": "future_elder",
+			"name": "王奶奶",
+			"name_en": "Grandma Wang",
+			"era": "2050s",
+			"age": 78,
+			"story_title": "童年的玩具",
+			"story_title_en": "Childhood Toy",
+			"backstory": "来自2050年的老人，她的孙女对古董玩具很感兴趣。在那个年代，全息玩具早已淘汰，但对王奶奶来说，那是她童年最珍贵的记忆。",
+			"dialogue": [
+				"小店主，你这里有未来的东西吗？",
+				"我孙女总说我们那个年代的玩具太老土了。",
+				"她不知道，那个小小的全息投影，陪伴了我整个童年。",
+				"我想让她看看，其实每个时代都有属于自己的美好。",
+				"太好了！这个她一定会喜欢的！"
+			],
+			"desired_items": ["hologram_toy"],
+			"reward_money": 60,
+			"reward_reputation": 15,
+			"unlock_condition": "day >= 3",
+			"epilogue": "后来你收到了一张全息明信片，是小女孩寄来的。她说那个玩具成了她最喜欢的宝物。"
+		},
+		{
+			"id": "victorian_gentleman",
+			"name": "爱德华先生",
+			"name_en": "Mr. Edward",
+			"era": "victorian",
+			"age": 45,
+			"story_title": "遗失的时光",
+			"story_title_en": "Lost Time",
+			"backstory": "维多利亚时代的绅士，他的怀表在一次意外中损坏了。那是他父亲临终前留给他的唯一遗物，上面刻着家族的格言。",
+			"dialogue": [
+				"日安，尊敬的店主。",
+				"我在寻找一块怀表，它对我意义重大。",
+				"我父亲曾说，时间是我们唯一无法挽回的财富。",
+				"他留给我的那块表，在一场火灾中损坏了...",
+				"我想，如果能找到一块类似的，至少能让我想起他的教诲。",
+				"万分感激！这让我重新找回了与父亲的联系。"
+			],
+			"desired_items": ["pocket_watch"],
+			"reward_money": 80,
+			"reward_reputation": 20,
+			"unlock_condition": "reputation >= 25",
+			"epilogue": "爱德华在临走前，在怀表背面刻上了父亲的那句话。他说，这份传承会一直延续下去。"
+		},
+		{
+			"id": "photographer",
+			"name": "张小雨",
+			"name_en": "Zhang Xiaoyu",
+			"era": "1990s",
+			"age": 24,
+			"story_title": "瞬间的永恒",
+			"story_title_en": "Eternal Moment",
+			"backstory": "90年代的摄影爱好者，她目睹着城市的快速变迁。老街区即将被拆除，她想用拍立得记录下那些即将消失的场景。",
+			"dialogue": [
+				"听说这里能找到各种稀奇的东西？",
+				"我需要一台拍立得相机，数码的太没感觉了。",
+				"有些东西，只有即时成像才能捕捉到那种真实感。",
+				"我们街区下个月就要拆了，我想留下些什么...",
+				"那些老爷爷老奶奶，那些斑驳的墙壁，都值得被记住。",
+				"完美！我要去记录那些即将消失的美好了！"
+			],
+			"desired_items": ["polaroid_camera"],
+			"reward_money": 70,
+			"reward_reputation": 18,
+			"unlock_condition": "day >= 5",
+			"epilogue": "多年后，她举办了摄影展，那些拍立得照片成为了城市记忆的一部分。许多人在照片前落泪。"
+		}
+	]
+}

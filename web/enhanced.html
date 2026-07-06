@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光杂货铺 - 完整增强版</title>
+    <link rel="stylesheet" href="styles_enhanced.css">
+</head>
+<body>
+    <div id="particles"></div>
+
+    <div id="game-container">
+        <!-- 主菜单 -->
+        <div id="main-menu">
+            <h1>⏰ 时光杂货铺 ⏰</h1>
+            <h2>Time Shop Game - Complete Enhanced Edition</h2>
+            <div class="menu-buttons">
+                <button onclick="startNewGame()">🎮 开始游戏</button>
+                <button id="continue-btn" onclick="continueGame()" disabled>📖 继续游戏</button>
+                <button onclick="showStoryBook()">📚 故事收集册</button>
+                <button onclick="showAchievements()">🏆 成就</button>
+                <button onclick="toggleSound()">🔊 音效: <span id="sound-status">开启</span></button>
+            </div>
+        </div>
+
+        <!-- 商店界面 -->
+        <div id="shop">
+            <div class="top-bar">
+                <div class="stat">
+                    <span class="stat-icon">💰</span>
+                    <span>金钱: $<span id="money">100</span></span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📅</span>
+                    <span>第 <span id="day">1</span> 天</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">⭐</span>
+                    <span>声望: <span id="reputation">0</span></span>
+                </div>
+                <div class="stat">
+                    <span class="stat-icon">📖</span>
+                    <span>故事: <span id="stories">0</span>/<span id="total-stories">10</span></span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="customer-area">
+                    <div class="customer-portrait" id="customer-portrait">
+                        <div class="customer-avatar" id="customer-avatar">⏰</div>
+                        <div class="customer-name" id="customer-name">等待顾客...</div>
+                        <div class="customer-era" id="customer-era"></div>
+                    </div>
+
+                    <div class="dialogue-box">
+                        <div class="dialogue-text" id="dialogue-text">
+                            欢迎来到时光杂货铺！这里收藏着来自不同时代的珍贵物品...
+                        </div>
+                        <div class="dialogue-buttons">
+                            <button onclick="nextDialogue()">继续 ➡️</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="panel">
+                        <h3>📦 库存</h3>
+                        <div class="inventory-grid" id="inventory"></div>
+                    </div>
+
+                    <div class="panel">
+                        <h3>🎮 操作</h3>
+                        <div class="controls">
+                            <button onclick="nextDay()">🌅 下一天</button>
+                            <button onclick="openMerchant()">🧙 神秘商人</button>
+                            <button onclick="showUpgrades()">🏪 商店升级</button>
+                            <button onclick="saveGame()">💾 保存游戏</button>
+                            <button onclick="backToMenu()">🏠 返回菜单</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 加载游戏脚本 -->
+    <script src="game.js"></script>
+    <script src="game_complete.js"></script>
+    <script>
+        // 创建背景粒子效果
+        function createParticles() {
+            const container = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 5) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // 更新总故事数
+        document.getElementById('total-stories').textContent = (ALL_CUSTOMERS || CUSTOMERS).length;
+
+        // 初始化
+        window.addEventListener('load', function() {
+            createParticles();
+            initGame();
+        });
+    </script>
+</body>
+</html>

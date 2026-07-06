@@ -1,0 +1,228 @@
+[gd_scene load_steps=2 format=3 uid="uid://c8h7k2m9r3x4w"]
+
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_shop"]
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_shop")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.25, 0.2, 0.15, 1)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TopBar" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 80.0
+grow_horizontal = 2
+
+[node name="MoneyLabel" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+offset_bottom = 60.0
+theme_override_font_sizes/font_size = 24
+text = "金钱: $100"
+
+[node name="DayLabel" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -100.0
+offset_top = 20.0
+offset_right = 100.0
+offset_bottom = 60.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 24
+text = "第 1 天"
+horizontal_alignment = 1
+
+[node name="ReputationLabel" type="Label" parent="UI/TopBar"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -220.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 24
+text = "声望: 0"
+horizontal_alignment = 2
+
+[node name="InventoryPanel" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -250.0
+offset_right = 400.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="UI/InventoryPanel"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 20
+text = "库存"
+
+[node name="InventoryGrid" type="GridContainer" parent="UI/InventoryPanel"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 780.0
+offset_bottom = 210.0
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 4
+
+[node name="CustomerPanel" type="Panel" parent="UI"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -200.0
+offset_right = 300.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RequestLabel" type="Label" parent="UI/CustomerPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -50.0
+offset_right = 250.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "顾客想要: [物品]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="DialogueBox" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -450.0
+offset_top = -280.0
+offset_right = 450.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="NameLabel" type="Label" parent="UI/DialogueBox"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_font_sizes/font_size = 18
+text = "顾客"
+
+[node name="DialogueLabel" type="Label" parent="UI/DialogueBox"]
+layout_mode = 1
+offset_left = 20.0
+offset_top = 50.0
+offset_right = 880.0
+offset_bottom = 200.0
+theme_override_font_sizes/font_size = 20
+text = "对话内容..."
+autowrap_mode = 3
+
+[node name="NextButton" type="Button" parent="UI/DialogueBox"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_top = -50.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "继续"
+
+[node name="Controls" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_bottom = 150.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Controls"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="Label" type="Label" parent="UI/Controls/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "操作"
+horizontal_alignment = 1
+
+[node name="NextDayButton" type="Button" parent="UI/Controls/VBoxContainer"]
+layout_mode = 2
+text = "下一天"
+
+[node name="SaveButton" type="Button" parent="UI/Controls/VBoxContainer"]
+layout_mode = 2
+text = "保存游戏"
+
+[node name="MenuButton" type="Button" parent="UI/Controls/VBoxContainer"]
+layout_mode = 2
+text = "返回菜单"

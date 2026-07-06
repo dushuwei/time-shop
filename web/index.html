@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时光杂货铺 - Time Shop Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            background: linear-gradient(135deg, #2c2416 0%, #3d3326 100%);
+            color: #f5f5dc;
+            overflow: hidden;
+        }
+
+        #game-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 主菜单 */
+        #main-menu {
+            text-align: center;
+            animation: fadeIn 0.5s;
+        }
+
+        #main-menu h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+        }
+
+        #main-menu h2 {
+            font-size: 1.5rem;
+            margin-bottom: 3rem;
+            color: #daa520;
+            font-style: italic;
+        }
+
+        .menu-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        button {
+            padding: 1rem 3rem;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #8b6914 0%, #daa520 100%);
+            color: white;
+            border: 2px solid #ffd700;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            min-width: 300px;
+            font-family: inherit;
+        }
+
+        button:hover {
+            background: linear-gradient(135deg, #daa520 0%, #ffd700 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255,215,0,0.4);
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* 商店界面 */
+        #shop {
+            display: none;
+            width: 100%;
+            height: 100%;
+            flex-direction: column;
+        }
+
+        #shop.active {
+            display: flex;
+        }
+
+        /* 顶部信息栏 */
+        .top-bar {
+            background: rgba(0,0,0,0.5);
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 2px solid #ffd700;
+        }
+
+        .stat {
+            font-size: 1.5rem;
+            color: #ffd700;
+        }
+
+        /* 主游戏区域 */
+        .game-area {
+            flex: 1;
+            display: flex;
+            padding: 2rem;
+            gap: 2rem;
+        }
+
+        /* 左侧 - 顾客区域 */
+        .customer-area {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .customer-portrait {
+            background: rgba(0,0,0,0.3);
+            border: 2px solid #daa520;
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            min-height: 200px;
+        }
+
+        .customer-name {
+            font-size: 2rem;
+            color: #ffd700;
+            margin-bottom: 0.5rem;
+        }
+
+        .customer-era {
+            font-size: 1.2rem;
+            color: #daa520;
+            font-style: italic;
+        }
+
+        /* 对话框 */
+        .dialogue-box {
+            background: rgba(0,0,0,0.7);
+            border: 2px solid #daa520;
+            border-radius: 12px;
+            padding: 2rem;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .dialogue-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .dialogue-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .dialogue-buttons button {
+            min-width: 120px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        /* 右侧 - 库存和控制 */
+        .right-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .panel {
+            background: rgba(0,0,0,0.5);
+            border: 2px solid #daa520;
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .panel h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #daa520;
+            padding-bottom: 0.5rem;
+        }
+
+        .inventory-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 0.8rem;
+        }
+
+        .item-button {
+            background: linear-gradient(135deg, #4a3a1a 0%, #6b5a2a 100%);
+            border: 2px solid #8b6914;
+            color: #f5f5dc;
+            padding: 1rem;
+            text-align: left;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+        }
+
+        .item-button:hover {
+            background: linear-gradient(135deg, #6b5a2a 0%, #8b6914 100%);
+            border-color: #daa520;
+            transform: translateX(5px);
+        }
+
+        .item-name {
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .item-quantity {
+            color: #daa520;
+            font-size: 0.9rem;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .controls button {
+            min-width: auto;
+            padding: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        /* 动画 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .success-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,128,0,0.9);
+            padding: 2rem 4rem;
+            border-radius: 12px;
+            font-size: 2rem;
+            animation: fadeIn 0.3s;
+            z-index: 1000;
+        }
+
+        .error-message {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(139,0,0,0.9);
+            padding: 2rem 4rem;
+            border-radius: 12px;
+            font-size: 2rem;
+            animation: fadeIn 0.3s;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- 主菜单 -->
+        <div id="main-menu">
+            <h1>时光杂货铺</h1>
+            <h2>Time Shop Game</h2>
+            <div class="menu-buttons">
+                <button onclick="startNewGame()">开始游戏</button>
+                <button id="continue-btn" onclick="continueGame()" disabled>继续游戏</button>
+                <button onclick="showCredits()">关于游戏</button>
+            </div>
+        </div>
+
+        <!-- 商店界面 -->
+        <div id="shop">
+            <div class="top-bar">
+                <div class="stat">💰 金钱: $<span id="money">100</span></div>
+                <div class="stat">📅 第 <span id="day">1</span> 天</div>
+                <div class="stat">⭐ 声望: <span id="reputation">0</span></div>
+            </div>
+
+            <div class="game-area">
+                <div class="customer-area">
+                    <div class="customer-portrait" id="customer-portrait">
+                        <div class="customer-name" id="customer-name">等待顾客...</div>
+                        <div class="customer-era" id="customer-era"></div>
+                    </div>
+
+                    <div class="dialogue-box">
+                        <div class="dialogue-text" id="dialogue-text">
+                            欢迎来到时光杂货铺！这里收藏着来自不同时代的珍贵物品...
+                        </div>
+                        <div class="dialogue-buttons">
+                            <button onclick="nextDialogue()">继续</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-panel">
+                    <div class="panel">
+                        <h3>📦 库存</h3>
+                        <div class="inventory-grid" id="inventory"></div>
+                    </div>
+
+                    <div class="panel">
+                        <h3>🎮 操作</h3>
+                        <div class="controls">
+                            <button onclick="nextDay()">下一天</button>
+                            <button onclick="saveGame()">保存游戏</button>
+                            <button onclick="backToMenu()">返回菜单</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>

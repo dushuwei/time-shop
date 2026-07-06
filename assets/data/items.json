@@ -1,0 +1,82 @@
+{
+	"items": [
+		{
+			"id": "cassette_tape",
+			"name": "磁带",
+			"name_en": "Cassette Tape",
+			"description": "1980年代的音乐载体，承载着青春的回忆",
+			"base_price": 15,
+			"sell_price": 25,
+			"rarity": "common",
+			"era": "1980s",
+			"category": "media",
+			"tags": ["music", "retro", "recordable"]
+		},
+		{
+			"id": "vinyl_record",
+			"name": "黑胶唱片",
+			"name_en": "Vinyl Record",
+			"description": "经典的音乐收藏品，温暖的模拟音质",
+			"base_price": 30,
+			"sell_price": 50,
+			"rarity": "uncommon",
+			"era": "1960s",
+			"category": "media",
+			"tags": ["music", "vintage", "collectible"]
+		},
+		{
+			"id": "pocket_watch",
+			"name": "怀表",
+			"name_en": "Pocket Watch",
+			"description": "维多利亚时代的精致计时器，象征着永恒",
+			"base_price": 50,
+			"sell_price": 80,
+			"rarity": "rare",
+			"era": "victorian",
+			"category": "accessory",
+			"tags": ["timepiece", "elegant", "heirloom"]
+		},
+		{
+			"id": "hologram_toy",
+			"name": "全息玩具",
+			"name_en": "Hologram Toy",
+			"description": "2050年代儿童的最爱，科技与童趣的结合",
+			"base_price": 40,
+			"sell_price": 60,
+			"rarity": "uncommon",
+			"era": "2050s",
+			"category": "toy",
+			"tags": ["futuristic", "interactive", "children"]
+		},
+		{
+			"id": "ancient_book",
+			"name": "古籍",
+			"name_en": "Ancient Book",
+			"description": "失传已久的珍贵典籍，蕴含着先人的智慧",
+			"base_price": 100,
+			"sell_price": 150,
+			"rarity": "legendary",
+			"era": "ancient",
+			"category": "book",
+			"tags": ["knowledge", "rare", "historic"]
+		},
+		{
+			"id": "polaroid_camera",
+			"name": "拍立得相机",
+			"name_en": "Polaroid Camera",
+			"description": "能即时成像的神奇相机，定格珍贵瞬间",
+			"base_price": 45,
+			"sell_price": 70,
+			"rarity": "uncommon",
+			"era": "1990s",
+			"category": "electronics",
+			"tags": ["photography", "instant", "nostalgia"]
+		}
+	],
+	"rarity_colors": {
+		"common": "#FFFFFF",
+		"uncommon": "#00FF00",
+		"rare": "#0080FF",
+		"legendary": "#FF8000"
+	}
+}

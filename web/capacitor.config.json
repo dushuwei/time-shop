@@ -1,0 +1,13 @@
+{
+  "appId": "com.timeshop.game",
+  "appName": "时光杂货铺",
+  "webDir": ".",
+  "bundledWebRuntime": false,
+  "server": {
+    "allowNavigation": ["*"]
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "scheme": "TimeShopGame"
+  }
+}
